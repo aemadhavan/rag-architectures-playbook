@@ -16,6 +16,7 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 from shared.ingest import load_documents
 from shared.llm import generate_text
+from shared.observability import init_tracing
 
 console = Console()
 
@@ -42,6 +43,7 @@ def judge_answer(question: str, expected: str, actual: str) -> float:
 
 
 def run_benchmarks():
+    init_tracing()
     docs = load_documents(ROOT_DIR / "data")
     goldset = json.loads((ROOT_DIR / "goldset" / "questions.json").read_text(encoding="utf-8"))
 
