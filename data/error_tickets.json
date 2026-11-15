@@ -1,0 +1,23 @@
+[
+  {
+    "ticket_id": "INC-1042",
+    "error_code": "ERR-504B",
+    "service": "payment-gateway",
+    "summary": "Upstream bank settlement timeout during batch reconciliation.",
+    "resolution": "Increase settlement_timeout_ms to 15000 in payment-gateway config and trigger manual replay via `acme-cli replay --batch-id`."
+  },
+  {
+    "ticket_id": "INC-1089",
+    "error_code": "ERR-429A",
+    "service": "auth-service",
+    "summary": "Token introspection endpoint throttled due to missing Redis cache.",
+    "resolution": "Verify Redis cluster health and enable `TOKEN_CACHE_TTL=300` in auth-service."
+  },
+  {
+    "ticket_id": "INC-1103",
+    "error_code": "ERR-901X",
+    "service": "webhook-dispatcher",
+    "summary": "TLS handshake failure when delivering webhooks to legacy customer endpoints.",
+    "resolution": "Enable `ALLOW_TLS_1_2=true` for the specific tenant ID in the webhook-dispatcher tenant overrides."
+  }
+]

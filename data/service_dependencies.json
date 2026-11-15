@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "name": "auth-service",
+      "owner_team": "Identity & Access Team",
+      "depends_on": ["redis-cache", "postgres-users"]
+    },
+    {
+      "name": "payment-gateway",
+      "owner_team": "FinOps Core Team",
+      "depends_on": ["auth-service", "ledger-db"]
+    },
+    {
+      "name": "checkout-api",
+      "owner_team": "Storefront Team",
+      "depends_on": ["payment-gateway", "inventory-service"]
+    },
+    {
+      "name": "webhook-dispatcher",
+      "owner_team": "Platform Integrations Team",
+      "depends_on": ["auth-service", "kafka-events"]
+    }
+  ]
+}

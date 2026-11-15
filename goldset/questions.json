@@ -1,0 +1,30 @@
+[
+  {
+    "id": "q1",
+    "category": "simple_lookup",
+    "question": "How long do AcmeCloud session tokens last by default?",
+    "expected_answer": "Session tokens expire after 12 hours by default.",
+    "expected_source": "product_docs.md"
+  },
+  {
+    "id": "q2",
+    "category": "exact_match_code",
+    "question": "How do I resolve ERR-504B?",
+    "expected_answer": "Increase settlement_timeout_ms to 15000 in payment-gateway config and trigger manual replay via acme-cli replay --batch-id.",
+    "expected_source": "error_tickets.json"
+  },
+  {
+    "id": "q3",
+    "category": "multi_hop_graph",
+    "question": "If auth-service goes down, which teams' services are impacted downstream?",
+    "expected_answer": "FinOps Core Team (payment-gateway), Storefront Team (checkout-api), and Platform Integrations Team (webhook-dispatcher).",
+    "expected_source": "service_dependencies.json"
+  },
+  {
+    "id": "q4",
+    "category": "unanswerable",
+    "question": "What is the pricing for the AcmeCloud Enterprise plan?",
+    "expected_answer": "I do not have enough information in the provided context to answer this question.",
+    "expected_source": "none"
+  }
+]
